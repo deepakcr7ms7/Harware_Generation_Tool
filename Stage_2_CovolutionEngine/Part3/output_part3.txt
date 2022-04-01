@@ -1,0 +1,729 @@
+
+                      Design Compiler Graphical
+                            DC Ultra (TM)
+                             DFTMAX (TM)
+                         Power Compiler (TM)
+                           DesignWare (R)
+                           DC Expert (TM)
+                         Design Vision (TM)
+                          HDL Compiler (TM)
+                         VHDL Compiler (TM)
+                            DFT Compiler
+                        Library Compiler (TM)
+                         Design Compiler(R)
+
+         Version J-2014.09-SP5-2 for RHEL64 -- Jul 11, 2015
+               Copyright (c) 1988-2015 Synopsys, Inc.
+
+This software and the associated documentation are confidential and 
+proprietary to Synopsys, Inc. Your use or disclosure of this software 
+is subject to the terms and conditions of a written license agreement 
+between you, or your company, and Synopsys, Inc.
+
+Initializing...
+###############################################
+# Setup: fill out the following parameters: name of clock signal, clock period (ns),
+# reset signal name (if used), name of top-level module, name of source file
+set CLK_NAME "clk";
+clk
+set CLK_PERIOD 1.23;
+1.23
+set RST_NAME "reset";
+reset
+set TOP_MOD_NAME "conv_112_49_opt";
+conv_112_49_opt
+set SRC_FILE "conv_112_49_opt.sv";
+conv_112_49_opt.sv
+# If you have multiple source files, change the line above to list them all like this:
+# set SRC_FILE [list "file1.sv" "file2.sv"];
+###############################################
+source setupdc.tcl
+NangateOpenCellLibrary_typical.db dw_foundation.sldb
+file mkdir work_synth
+# optimize FSMs
+set fsm_auto_inferring "true"; 
+true
+set fsm_enable_state_minimization "true";
+true
+define_design_lib WORK -path work_synth
+1
+analyze $SRC_FILE -format sverilog
+Running PRESTO HDLC
+Searching for ./conv_112_49_opt.sv
+Compiling source file ./conv_112_49_opt.sv
+Warning:  ./conv_112_49_opt.sv:25: the undeclared symbol 'i' assumed to have the default net type, which is 'wire'. (VER-936)
+Presto compilation completed successfully.
+Loading db file '/home/home4/pmilder/ese507/synthesis/lib/NangateOpenCellLibrary_typical.db'
+Loading db file '/usr/local/synopsys/syn/libraries/syn/dw_foundation.sldb'
+1
+elaborate -work WORK $TOP_MOD_NAME
+Loading db file '/usr/local/synopsys/syn/libraries/syn/gtech.db'
+Loading db file '/usr/local/synopsys/syn/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Warning:  ./conv_112_49_opt.sv:49: signed to unsigned conversion occurs. (VER-318)
+Warning:  ./conv_112_49_opt.sv:49: signed to unsigned conversion occurs. (VER-318)
+Warning:  ./conv_112_49_opt.sv:142: signed to unsigned conversion occurs. (VER-318)
+Warning:  ./conv_112_49_opt.sv:181: signed to unsigned conversion occurs. (VER-318)
+Warning:  ./conv_112_49_opt.sv:175: signed to unsigned conversion occurs. (VER-318)
+Warning:  ./conv_112_49_opt.sv:169: signed to unsigned conversion occurs. (VER-318)
+Warning:  ./conv_112_49_opt.sv:166: signed to unsigned conversion occurs. (VER-318)
+Warning:  ./conv_112_49_opt.sv:163: signed to unsigned conversion occurs. (VER-318)
+Warning:  ./conv_112_49_opt.sv:163: signed to unsigned conversion occurs. (VER-318)
+Warning:  ./conv_112_49_opt.sv:251: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine conv_112_49_opt line 218 in file
+		'./conv_112_49_opt.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| overflow_county_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  present_state_reg  | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|    counterx_reg     | Flip-flop |   7   |  Y  | N  | N  | N  | N  | N  | N  |
+|    counterf_reg     | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|    countery_reg     | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+==============================================================
+|  block name/line    | Inputs | Outputs | # sel inputs | MB |
+==============================================================
+| conv_112_49_opt/153 |   64   |   26    |      6       | N  |
+==============================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'conv_112_49_opt'.
+Information: Building the design 'memory' instantiated from design 'conv_112_49_opt' with
+	the parameters "10,49". (HDL-193)
+
+Inferred memory devices in process
+	in routine memory_WIDTH10_SIZE49 line 318 in file
+		'./conv_112_49_opt.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    data_out_reg     | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+|       mem_reg       | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'mac'. (HDL-193)
+
+Inferred memory devices in process
+	in routine mac line 287 in file
+		'./conv_112_49_opt.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     y_data_reg      | Flip-flop |  26   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+1
+###### CLOCKS AND PORTS #######
+set CLK_PORT [get_ports $CLK_NAME]
+{clk}
+set TMP1 [remove_from_collection [all_inputs] $CLK_PORT]
+{reset x_data[9] x_data[8] x_data[7] x_data[6] x_data[5] x_data[4] x_data[3] x_data[2] x_data[1] x_data[0] x_valid f_data[9] f_data[8] f_data[7] f_data[6] f_data[5] f_data[4] f_data[3] f_data[2] f_data[1] f_data[0] f_valid y_ready}
+set INPUTS [remove_from_collection $TMP1 $RST_NAME]
+{x_data[9] x_data[8] x_data[7] x_data[6] x_data[5] x_data[4] x_data[3] x_data[2] x_data[1] x_data[0] x_valid f_data[9] f_data[8] f_data[7] f_data[6] f_data[5] f_data[4] f_data[3] f_data[2] f_data[1] f_data[0] f_valid y_ready}
+create_clock -period $CLK_PERIOD [get_ports clk]
+1
+# set delay for inputs to be 0.2ns
+set_input_delay 0.2 -max -clock clk $INPUTS
+1
+set_output_delay 0.2 -max -clock clk [all_outputs]
+1
+###### OPTIMIZATION #######
+set_max_area 0 
+1
+###### RUN #####
+compile_ultra
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | J-2014.09-DWBB_201409.5.2 |   *     |
+| Licensed DW Building Blocks        | J-2014.09-DWBB_201409.5.2 |   *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 69 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Loaded alib file './alib-52/NangateOpenCellLibrary_typical.db.alib'
+  Building model 'DW01_NAND2'
+Information: Ungrouping hierarchy genblk1[0].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[0].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[1].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[1].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[2].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[2].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[3].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[3].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[4].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[4].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[5].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[5].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[6].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[6].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[7].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[7].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[8].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[8].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[9].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[9].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[10].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[10].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[11].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[11].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[12].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[12].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[13].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[13].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[14].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[14].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[15].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[15].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[16].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[16].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[17].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[17].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[18].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[18].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[19].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[19].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[20].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[20].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[21].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[21].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[22].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[22].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[23].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[23].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[24].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[24].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[25].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[25].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[26].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[26].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[27].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[27].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[28].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[28].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[29].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[29].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[30].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[30].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[31].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[31].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[32].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[32].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[33].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[33].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[34].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[34].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[35].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[35].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[36].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[36].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[37].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[37].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[38].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[38].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[39].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[39].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[40].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[40].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[41].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[41].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[42].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[42].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[43].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[43].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[44].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[44].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[45].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[45].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[46].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[46].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[47].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[47].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[48].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[48].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[49].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[49].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[50].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[50].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[51].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[51].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[52].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[52].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[53].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[53].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[54].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[54].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[55].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[55].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[56].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[56].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[57].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[57].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[58].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[58].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[59].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[59].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[60].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[60].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[61].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[61].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[62].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[62].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[63].x before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy genblk1[63].m2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy f before Pass 1 (OPT-776)
+Information: Ungrouping 129 of 130 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'conv_112_49_opt'
+Information: Added key list 'DesignWare' to design 'conv_112_49_opt'. (DDB-72)
+Warning: The extraction is too expensive. (FSM_EX-127)
+Information: The finite state machine present_state_reg cannot be extracted. (FSM_EX-145)
+ Implement Synthetic for 'conv_112_49_opt'.
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+Information: The register 'present_state_reg[3]' is a constant and will be removed. (OPT-1206)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:07:32  337227.3      2.03   30143.9    4134.7                           7481633.5000
+    0:07:33  337218.6      1.88   25361.2    4094.1                           7481174.0000
+    0:07:33  337218.6      1.88   25361.2    4094.1                           7481174.0000
+    0:07:34  337210.3      1.64   20275.2    4094.1                           7480729.5000
+  Re-synthesis Optimization (Phase 1)
+  Re-synthesis Optimization (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Mapping 'conv_112_49_opt_DP_OP_33734J1_165_7765_1'
+    0:14:51  302446.3      0.13    2187.8      73.1                           6362244.5000
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:14:51  302446.3      0.13    2187.8      73.1                           6362244.5000
+    0:14:53  302446.3      0.13    2187.8      73.1                           6362244.5000
+    0:15:03  302369.4      0.13    2170.6      73.1                           6354731.0000
+    0:15:03  302369.4      0.13    2170.6      73.1                           6354731.0000
+    0:15:43  303559.2      0.09    1169.4       9.6                           6392498.0000
+    0:15:43  303559.2      0.09    1169.4       9.6                           6392498.0000
+    0:15:44  303561.9      0.09    1172.8       9.6                           6392615.0000
+    0:15:44  303561.9      0.09    1172.8       9.6                           6392615.0000
+    0:15:50  303785.8      0.08    1075.9      10.5                           6399580.5000
+    0:15:50  303785.8      0.08    1075.9      10.5                           6399580.5000
+    0:16:05  304388.1      0.07     665.1      11.8                           6420283.0000
+    0:16:05  304388.1      0.07     665.1      11.8                           6420283.0000
+    0:16:12  304714.2      0.06     638.7      36.7                           6430623.0000
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:16:12  304713.1      0.06     638.7      36.7                           6430572.5000
+    0:16:18  305000.7      0.06     554.1      36.7                           6440348.5000
+    0:16:18  305000.7      0.06     554.1      36.7                           6440348.5000
+    0:16:44  305289.0      0.05     464.1      87.7                           6449437.0000
+    0:16:44  305287.9      0.06     464.1      87.7                           6449386.5000
+    0:16:50  305529.7      0.05     428.3      87.7                           6457894.5000
+    0:16:50  305529.7      0.05     428.3      87.7                           6457894.5000
+    0:16:52  305616.2      0.05     407.1      87.7                           6460367.0000
+    0:16:53  305614.0      0.05     406.9      87.7                           6460266.5000
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:16:53  305614.0      0.05     406.9      87.7                           6460266.5000
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+    0:17:05  305592.5      0.04     385.4       0.0 genblk1[15].m2/y_data_reg[17]/D 6460147.5000
+    0:17:06  305593.6      0.04     347.1       0.0                           6460405.0000
+    0:17:23  305848.1      0.04     283.1       0.0                           6468359.0000
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:17:24  305848.1      0.04     283.1       0.0                           6468359.0000
+    0:17:30  304985.8      0.04     272.4       0.0                           6444743.5000
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:17:53  304945.6      0.04     267.2       0.0                           6443696.5000
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+  Global Optimization (Phase 47)
+  Global Optimization (Phase 48)
+  Global Optimization (Phase 49)
+  Global Optimization (Phase 50)
+  Global Optimization (Phase 51)
+  Global Optimization (Phase 52)
+  Global Optimization (Phase 53)
+  Global Optimization (Phase 54)
+  Global Optimization (Phase 55)
+  Global Optimization (Phase 56)
+  Global Optimization (Phase 57)
+  Global Optimization (Phase 58)
+  Global Optimization (Phase 59)
+  Global Optimization (Phase 60)
+  Global Optimization (Phase 61)
+  Global Optimization (Phase 62)
+  Global Optimization (Phase 63)
+  Global Optimization (Phase 64)
+  Global Optimization (Phase 65)
+  Global Optimization (Phase 66)
+  Global Optimization (Phase 67)
+  Global Optimization (Phase 68)
+    0:20:20  296866.4      0.00       0.0       0.0                           6153169.0000
+    0:20:20  296866.4      0.00       0.0       0.0                           6153169.0000
+    0:20:20  296866.4      0.00       0.0       0.0                           6153169.0000
+    0:20:29  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:30  296779.9      0.00       0.0       0.0                           6147196.5000
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:20:41  296779.9      0.00       0.0       0.0                           6147196.5000
+    0:20:56  295937.5      0.02      15.5       0.0                           6102427.5000
+    0:21:00  296027.1      0.01      10.3       0.0                           6106656.5000
+    0:21:01  296009.6      0.01      10.2       0.0                           6106269.0000
+    0:21:03  296001.3      0.01      10.2       0.0                           6106086.0000
+    0:21:03  295999.2      0.01      10.2       0.0                           6106042.5000
+    0:21:04  295999.2      0.01      10.2       0.0                           6106042.5000
+    0:21:16  296011.4      0.01      10.4       0.0                           6107261.5000
+    0:21:24  295662.7      0.01       8.2       0.0                           6097797.0000
+    0:21:32  295396.5      0.01       7.1       0.0                           6089726.5000
+    0:21:41  295053.6      0.01       5.0       0.0                           6080389.0000
+    0:21:51  294985.2      0.01       5.0       0.0                           6078509.5000
+    0:22:00  294982.6      0.01       5.0       0.0                           6078423.5000
+    0:22:09  294977.5      0.01       5.0       0.0                           6078293.5000
+    0:22:26  294975.9      0.01       4.6       0.0                           6078251.0000
+    0:22:31  294807.8      0.01       4.5       0.0                           6073407.0000
+    0:22:39  295195.6      0.00       0.0      10.8                           6087933.5000
+    0:22:49  294938.4      0.00       0.0      14.3                           6076184.0000
+Loading db file '/home/home4/pmilder/ese507/synthesis/lib/NangateOpenCellLibrary_typical.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'conv_112_49_opt' contains 11 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'clk': 34187 load(s), 1 driver(s)
+     Net 'x_data[9]': 3095 load(s), 1 driver(s)
+     Net 'x_data[8]': 3103 load(s), 1 driver(s)
+     Net 'x_data[7]': 3105 load(s), 1 driver(s)
+     Net 'x_data[6]': 3104 load(s), 1 driver(s)
+     Net 'x_data[5]': 3105 load(s), 1 driver(s)
+     Net 'x_data[4]': 3105 load(s), 1 driver(s)
+     Net 'x_data[3]': 3105 load(s), 1 driver(s)
+     Net 'x_data[2]': 3105 load(s), 1 driver(s)
+     Net 'x_data[1]': 3104 load(s), 1 driver(s)
+     Net 'x_data[0]': 3105 load(s), 1 driver(s)
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+report_area
+ 
+****************************************
+Report : area
+Design : conv_112_49_opt
+Version: J-2014.09-SP5-2
+Date   : Sun Oct 31 21:45:24 2021
+****************************************
+
+Information: Updating design information... (UID-85)
+Warning: Design 'conv_112_49_opt' contains 11 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /home/home4/pmilder/ese507/synthesis/lib/NangateOpenCellLibrary_typical.db)
+
+Number of ports:                           54
+Number of nets:                        166838
+Number of cells:                       162323
+Number of combinational cells:         128136
+Number of sequential cells:             34187
+Number of macros/black boxes:               0
+Number of buf/inv:                      41258
+Number of references:                      55
+
+Combinational area:             140272.974379
+Buf/Inv area:                    23098.376151
+Noncombinational area:          154665.428401
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                294938.402780
+Total area:                 undefined
+1
+report_power
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : conv_112_49_opt
+Version: J-2014.09-SP5-2
+Date   : Sun Oct 31 21:45:31 2021
+****************************************
+
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /home/home4/pmilder/ese507/synthesis/lib/NangateOpenCellLibrary_typical.db)
+
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+conv_112_49_opt        5K_hvratio_1_1    NangateOpenCellLibrary
+
+
+Global Operating Voltage = 1.1  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+  Cell Internal Power  = 184.5696 mW   (98%)
+  Net Switching Power  =   3.6075 mW    (2%)
+                         ---------
+Total Dynamic Power    = 188.1771 mW  (100%)
+
+Cell Leakage Power     =   5.2355 mW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register       1.8199e+05           93.5298        2.6234e+06        1.8471e+05  (  95.50%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational  2.5682e+03        3.5138e+03        2.6121e+06        8.6941e+03  (   4.50%)
+--------------------------------------------------------------------------------------------------
+Total          1.8456e+05 uW     3.6074e+03 uW     5.2355e+06 nW     1.9340e+05 uW
+1
+report_timing
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : conv_112_49_opt
+Version: J-2014.09-SP5-2
+Date   : Sun Oct 31 21:45:31 2021
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: f/data_out_reg[9]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: genblk1[35].m2/y_data_reg[25]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  conv_112_49_opt    5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  f/data_out_reg[9]/CK (DFF_X1)                           0.00 #     0.00 r
+  f/data_out_reg[9]/Q (DFF_X1)                            0.09       0.09 r
+  U102923/Z (BUF_X1)                                      0.06       0.15 r
+  U106761/Z (BUF_X4)                                      0.08       0.23 r
+  U118297/ZN (XNOR2_X1)                                   0.09       0.31 r
+  U118324/ZN (OAI22_X1)                                   0.04       0.36 f
+  U118337/S (HA_X1)                                       0.08       0.44 f
+  U118362/CO (FA_X1)                                      0.09       0.53 f
+  U118351/CO (FA_X1)                                      0.09       0.62 f
+  U118379/S (FA_X1)                                       0.15       0.77 r
+  U102366/ZN (NOR2_X2)                                    0.04       0.81 f
+  U118498/ZN (NOR2_X1)                                    0.05       0.86 r
+  U118499/ZN (NAND2_X1)                                   0.04       0.89 f
+  U126245/ZN (INV_X1)                                     0.03       0.93 r
+  U121036/ZN (NAND2_X1)                                   0.03       0.95 f
+  U121037/ZN (NAND2_X1)                                   0.03       0.98 r
+  U121044/ZN (NAND2_X1)                                   0.03       1.01 f
+  U121074/ZN (OAI21_X1)                                   0.05       1.06 r
+  U121078/ZN (AOI21_X1)                                   0.04       1.09 f
+  U121079/ZN (XNOR2_X1)                                   0.05       1.15 f
+  U121080/ZN (OAI21_X1)                                   0.04       1.19 r
+  genblk1[35].m2/y_data_reg[25]/D (DFF_X2)                0.01       1.19 r
+  data arrival time                                                  1.19
+
+  clock clk (rise edge)                                   1.23       1.23
+  clock network delay (ideal)                             0.00       1.23
+  genblk1[35].m2/y_data_reg[25]/CK (DFF_X2)               0.00       1.23 r
+  library setup time                                     -0.04       1.19
+  data required time                                                 1.19
+  --------------------------------------------------------------------------
+  data required time                                                 1.19
+  data arrival time                                                 -1.19
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1
+write -f verilog $TOP_MOD_NAME -output gates.v -hierarchy
+Writing verilog file '/home/home5/dphadtare/Project2/Part3/gates.v'.
+1
+quit
+
+Thank you...
