@@ -14,10 +14,24 @@ Project 3: Accelerated Hardware Generation Hardware >> [Project Handout](https:/
 
 
 ## Project Overview
-![Alt Text](https://github.com/deepakcr7ms7/Harware_Generation_Tool/blob/main/HGT1.jpg)
 
-![Alt Text](https://github.com/deepakcr7ms7/Harware_Generation_Tool/blob/main/HGT3.jpg)
+<h4> Project 1 - Basic MAC unit with control signals </h4>
+<img src="https://github.com/deepakcr7ms7/Harware_Generation_Tool/blob/main/images/HGT1.jpg" height="350" style="width:80%";">
+<hr>
 
-![Alt Text](https://github.com/deepakcr7ms7/Harware_Generation_Tool/blob/main/HGT5.jpg)
+
+<h4> Project 2 - Convolution Unit with Delay-Optimization </h4>
+
+<p float="left" > 
+  <img src="https://github.com/deepakcr7ms7/Harware_Generation_Tool/blob/main/images/HGT6.jpg" alt="Preprocessing" height="400"width="500"  />
+  <img src="https://github.com/deepakcr7ms7/Harware_Generation_Tool/blob/main/images/HGT7.jpg" alt="Augmented Images" height="400" width="500" />
+</p>  
+
+  <br><img src="https://github.com/deepakcr7ms7/Harware_Generation_Tool/blob/main/images/HGT3.jpg" alt="Augmented Images" height="350" style="width:90%" >
+
+
+<h4> Project 3 - Constructing a Hardware Generator, with C++ and Optimizing a Three-Layer System </h4>
+<img src="https://github.com/deepakcr7ms7/Harware_Generation_Tool/blob/main/images/HGT5.jpg" height="350" style="width:80%";">
+<hr>
 
 
