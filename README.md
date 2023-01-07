@@ -23,8 +23,8 @@ Project 3: Accelerated Hardware Generation Hardware >> [Project Handout](https:/
 <h4> Project 2 - Convolution Unit with Delay-Optimization </h4>
 
 <p float="left" > 
-  <img src="https://github.com/deepakcr7ms7/Harware_Generation_Tool/blob/main/images/HGT6.jpg" alt="Preprocessing" height="300" width="300"  />
-  <img src="https://github.com/deepakcr7ms7/Harware_Generation_Tool/blob/main/images/HGT7.jpg" alt="Augmented Images" height="300" width="300" />
+  <img src="https://github.com/deepakcr7ms7/Harware_Generation_Tool/blob/main/images/HGT6.jpg" alt="Preprocessing" height="300" width="350"  />
+  <img src="https://github.com/deepakcr7ms7/Harware_Generation_Tool/blob/main/images/HGT7.jpg" alt="Augmented Images" height="300" width="350" />
 </p>  
 
   <br><img src="https://github.com/deepakcr7ms7/Harware_Generation_Tool/blob/main/images/HGT3.jpg" alt="Augmented Images" height="350" style="width:80%" >
